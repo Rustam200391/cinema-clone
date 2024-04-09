@@ -93,8 +93,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 </ul>
 </i>
 
-<!-- npm cache clean --force
+<!-- 
+npm cache clean --force
 npm rebuild
+rm -r node_modules
 npm install
 or
 npm install react-scripts --save-dev -->
