@@ -5,7 +5,7 @@ import Home from "./pages/home/home";
 import MovieList from "./components/movieList/movieList";
 import Movie from "./pages/movieDetail/movie";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
@@ -20,6 +20,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
