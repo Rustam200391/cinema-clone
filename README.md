@@ -70,6 +70,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <i>
+
+https://imdbapi.dev/docs/graphql/quickstart
+
+APİ İMDB https://imdbapi.dev/
 <ul>Добавляем функционал:
     <li> Поиск фильмов: Добавьте функционал поиска фильмов по названию или ключевым словам. Это позволит пользователям быстро находить фильмы, которые они хотят посмотреть.</li>
 
