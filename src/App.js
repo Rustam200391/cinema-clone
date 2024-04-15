@@ -11,11 +11,11 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
-          <Route index path="/" element={<Home />}></Route>
+          <Route index path="/" element={<Home />} />
           {/* маршрут должен быть активирован при совпадении с корневым путем */}
-          <Route path="movie/:id" element={<Movie />}></Route>
-          <Route path="movies/:type" element={<MovieList />}></Route>
-          <Route path="/*" element={<h1>Error Page</h1>}></Route>
+          <Route path="movie/:id" element={<Movie />} />
+          <Route path="movies/:type" element={<MovieList />} />
+          <Route path="/*" element={<h1>Error Page</h1>} />
         </Routes>
       </Router>
     </div>
