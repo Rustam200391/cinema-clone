@@ -1,0 +1,40 @@
+.favoriteMovies {
+  padding: 20px;
+}
+
+.favoriteMovies__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.favoriteMovies__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favoriteMovies__link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.favoriteMovies__poster {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.favoriteMovies__poster:hover {
+  transform: scale(1.05);
+}
+
+.favoriteMovies__title {
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+}

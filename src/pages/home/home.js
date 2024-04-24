@@ -7,6 +7,7 @@ import MovieList from "../../components/movieList/movieList";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -59,6 +60,13 @@ const Home = () => {
   const filteredUpcomingMovies = filterMoviesByGenre(upcomingMovies);
   const filteredTopRatedMovies = filterMoviesByGenre(topRatedMovies);
 
+  const handleAddToFavorites = (movieId) => {
+    const movieToAdd = popularMovies.find((movie) => movie.id === movieId);
+    if (movieToAdd && !favoriteMovies.includes(movieToAdd)) {
+      setFavoriteMovies([...favoriteMovies, movieToAdd]);
+    }
+  };
+
   return (
     <>
       <div className="poster">
@@ -86,28 +94,36 @@ const Home = () => {
           showStatus={false}
         >
           {filteredPopularMovies.map((movie) => (
-            <Link
-              key={movie.id}
-              style={{ textDecoration: "none", color: "white" }}
-              to={`/movie/${movie.id}`}
-            >
-              <div className="posterImage">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                  alt=""
-                />
-              </div>
-              <div className="posterImage__overlay">
-                <div className="posterImage__title">{movie.original_title}</div>
-                <div className="posterImage__runtime">
-                  {movie.release_date}
-                  <span className="posterImage__rating">
-                    {movie.vote_average} <i className="fas fa-star" />
-                  </span>
+            <div key={movie.id}>
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to={`/movie/${movie.id}`}
+              >
+                <div className="posterImage">
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                    alt=""
+                  />
                 </div>
-                <div className="posterImage__description">{movie.overview}</div>
-              </div>
-            </Link>
+                <div className="posterImage__overlay">
+                  <div className="posterImage__title">
+                    {movie.original_title}
+                  </div>
+                  <div className="posterImage__runtime">
+                    {movie.release_date}
+                    <span className="posterImage__rating">
+                      {movie.vote_average} <i className="fas fa-star" />
+                    </span>
+                  </div>
+                  <div className="posterImage__description">
+                    {movie.overview}
+                  </div>
+                </div>
+              </Link>
+              <button onClick={() => handleAddToFavorites(movie.id)}>
+                Add to Favorites
+              </button>
+            </div>
           ))}
         </Carousel>
 

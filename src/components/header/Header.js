@@ -22,6 +22,7 @@ const Header = () => {
         <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
           <span>Upcoming</span>
         </Link>
+        <Link to="/favorites">Favorites</Link>
       </div>
     </div>
   );

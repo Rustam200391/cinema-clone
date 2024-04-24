@@ -19,6 +19,15 @@ const Movie = () => {
       .then((data) => setMovie(data));
   };
 
+  const handleAddToFavorites = () => {
+    const storedFavorites =
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+    if (!storedFavorites.some((fav) => fav.id === currentMovieDetail.id)) {
+      const updatedFavorites = [...storedFavorites, currentMovieDetail];
+      localStorage.setItem("favoriteMovies", JSON.stringify(updatedFavorites));
+    }
+  };
+
   return (
     <div className="movie">
       <div className="movie__intro">
@@ -41,6 +50,7 @@ const Movie = () => {
               alt=""
             />
           </div>
+          <button onClick={handleAddToFavorites}>Add to Favorites</button>
         </div>
         <div className="movie__detailRight">
           <div className="movie__detailRightTop">
@@ -52,7 +62,7 @@ const Movie = () => {
             </div>
             <div className="movie__rating">
               {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
-              <i class="fas fa-star" />
+              <i className="fas fa-star" />
               <span className="movie__voteCount">
                 {currentMovieDetail
                   ? "(" + currentMovieDetail.vote_count + ") votes"
